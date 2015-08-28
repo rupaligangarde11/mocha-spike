@@ -8,7 +8,7 @@ public enum UnitOfVolume implements Unit {
         value = v;
     }
     @Override
-    public double getBaseValue() {
+    public double getConversionValue() {
         return value;
     }
 }

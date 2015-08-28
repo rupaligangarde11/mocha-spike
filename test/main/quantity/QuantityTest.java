@@ -1,10 +1,6 @@
 package main.quantity;
 
 import junit.framework.TestCase;
-import main.quantity.Length;
-import main.quantity.UnitOfLength;
-import main.quantity.UnitOfVolume;
-import main.quantity.Volume;
 
 public class QuantityTest extends TestCase {
 

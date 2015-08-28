@@ -6,9 +6,8 @@ public class Length extends Quantity{
         super(quantity,unitOfLength);
     }
 
-    public static boolean checkEquality(Length from, Length to) {
-        double totalBaseValue = from.amount * from.unit.getBaseValue();
-        if(totalBaseValue == to.amount) return true;
-        return false;
+    public static boolean checkEquality(Length one, Length base) {
+        double totalValue = one.amount * one.unit.getConversionValue();
+        return totalValue == base.amount;
     }
 }
