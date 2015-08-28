@@ -34,12 +34,66 @@ public class QuantityTest extends TestCase {
     }
     public void testForEqualityForPintToMilliLitre() {
         Volume volumeInPint = new Volume(1, UnitOfVolume.PINT);
-        Volume volumeInMilliLitre = new Volume(473.176, UnitOfVolume.MILLILITRE);
+        Volume volumeInMilliLitre = new Volume(473.18, UnitOfVolume.MILLILITRE);
         assertTrue(Volume.checkEquality(volumeInPint, volumeInMilliLitre));
     }
     public void testForEqualityForTableSpoonToMilliLitre() {
         Volume volumeInTableSpoon = new Volume(1, UnitOfVolume.TABLESPOON);
-        Volume volumeInMilliLitre = new Volume(14.7868, UnitOfVolume.MILLILITRE);
+        Volume volumeInMilliLitre = new Volume(14.79, UnitOfVolume.MILLILITRE);
         assertTrue(Volume.checkEquality(volumeInTableSpoon, volumeInMilliLitre));
+    }
+    public void testTotalQuantityOfVolumeWhenBothUnitsAreSame(){
+        Volume volumeInLitre1 = new Volume(1,UnitOfVolume.LITRE);
+        Volume volumeInLitre2 = new Volume(2,UnitOfVolume.LITRE);
+
+        UnitOfVolume expectedUnit = UnitOfVolume.LITRE;
+        Volume expectedVolume = new Volume(3,expectedUnit);
+
+        assertTrue(expectedVolume.equals(Volume.total(volumeInLitre1, volumeInLitre2, expectedUnit)));
+    }
+    public void testTotalQuantityOfVolumeWhenUnitsAreDifferent(){
+        Volume volumeInMilliLitre = new Volume(3785.41,UnitOfVolume.MILLILITRE);
+        Volume volumeInGallon = new Volume(1,UnitOfVolume.GALLON);
+
+        UnitOfVolume expectedUnit = UnitOfVolume.GALLON;
+        Volume expectedVolume = new Volume(2,expectedUnit);
+
+        assertTrue(expectedVolume.equals(Volume.total(volumeInMilliLitre,volumeInGallon,expectedUnit)));
+    }
+    public void testTotalQuantityOfVolumeWhenExpectedUnitIsTableSpoon(){
+        Volume volumeInLitre = new Volume(1,UnitOfVolume.LITRE);
+        Volume volumeInPint = new Volume(1,UnitOfVolume.PINT);
+
+        UnitOfVolume expectedUnit = UnitOfVolume.TABLESPOON;
+        Volume expectedVolume = new Volume(99.63,expectedUnit);
+
+        assertTrue(expectedVolume.equals(Volume.total(volumeInLitre,volumeInPint,expectedUnit)));
+    }
+    public void testTotalQuantityOfLengthWhenBothUnitsAreSame(){
+        Length lengthInMeter1 = new Length(1,UnitOfLength.METER);
+        Length lengthInMeter2 = new Length(2,UnitOfLength.METER);
+
+        UnitOfLength expectedUnit = UnitOfLength.METER;
+        Length expectedVolume = new Length(3,expectedUnit);
+
+        assertTrue(expectedVolume.equals(Length.total(lengthInMeter1, lengthInMeter2, expectedUnit)));
+    }
+    public void testTotalQuantityOfLengthWhenUnitsAreDifferent(){
+        Length lengthInMeter1 = new Length(1,UnitOfLength.METER);
+        Length lengthInInch = new Length(1,UnitOfLength.INCH);
+
+        UnitOfLength expectedUnit = UnitOfLength.INCH;
+        Length expectedVolume = new Length(40.37,expectedUnit);
+
+        assertTrue(expectedVolume.equals(Length.total(lengthInMeter1, lengthInInch, expectedUnit)));
+    }
+    public void testTotalQuantityOfLengthWhenExpectedUnitIsCentimeter(){
+        Length lengthInMeter = new Length(1,UnitOfLength.METER);
+        Length lengthInFoot = new Length(1,UnitOfLength.FOOT);
+
+        UnitOfLength expectedUnit = UnitOfLength.CM;
+        Length expectedVolume = new Length(130.48,expectedUnit);
+
+        assertTrue(expectedVolume.equals(Length.total(lengthInMeter, lengthInFoot, expectedUnit)));
     }
 }
