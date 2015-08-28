@@ -1,11 +1,11 @@
 package main;
 
 public interface Converter {
-    public boolean convert(Material from,Material to);
+    public boolean checkEquality(Quantity from, Quantity to);
 }
 
  class FootToInch implements Converter {
-    public boolean convert(Material from, Material to){
+    public boolean checkEquality(Quantity from, Quantity to){
      return false;
     }
     private double footToInchConversion(double quantityInFoot) {
@@ -14,7 +14,7 @@ public interface Converter {
 }
 
  class InchToCm implements Converter {
-    public boolean convert(Material from, Material to){
+    public boolean checkEquality(Quantity from, Quantity to){
         return false;
     }
     private double inchToCmConversion(double quantityInInch) {
@@ -22,7 +22,7 @@ public interface Converter {
     }
 }
 class GallonToLitre implements Converter {
-    public boolean convert(Material from, Material to){
+    public boolean checkEquality(Quantity from, Quantity to){
         return false;
     }
     private double gallonToLitreConversion(double quantityInGallon) {
