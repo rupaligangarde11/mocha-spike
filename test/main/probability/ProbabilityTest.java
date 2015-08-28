@@ -1,6 +1,7 @@
-package main;
+package main.probability;
 
 import junit.framework.TestCase;
+import main.probability.Probability;
 import org.junit.Test;
 
 public class ProbabilityTest extends TestCase {

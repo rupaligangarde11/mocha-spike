@@ -1,6 +1,4 @@
-package main;
-
-import java.util.List;
+package main.probability;
 
 public class Event {
     Probability probability;
