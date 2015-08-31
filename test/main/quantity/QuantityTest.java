@@ -70,13 +70,12 @@ public class QuantityTest extends TestCase {
         assertTrue(expectedVolume.equals(Volume.total(volumeInLitre,volumeInPint,expectedUnit)));
     }
     public void testTotalQuantityOfLengthWhenBothUnitsAreSame(){
-        Length lengthInMeter1 = new Length(1,UnitOfLength.METER);
-        Length lengthInMeter2 = new Length(2,UnitOfLength.METER);
+        Length meter1 = new Length(1,UnitOfLength.METER);
+        Length meter2 = new Length(2,UnitOfLength.METER);
 
-        UnitOfLength expectedUnit = UnitOfLength.METER;
-        Length expectedVolume = new Length(3,expectedUnit);
+        Length meter3 = new Length(3, UnitOfLength.METER);
 
-        assertTrue(expectedVolume.equals(Length.total(lengthInMeter1, lengthInMeter2, expectedUnit)));
+        assertTrue(meter3.equals(Length.total(meter1, meter2, UnitOfLength.METER)));
     }
     public void testTotalQuantityOfLengthWhenUnitsAreDifferent(){
         Length lengthInMeter1 = new Length(1,UnitOfLength.METER);
