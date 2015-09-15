@@ -46,6 +46,7 @@ if (Meteor.isClient) {
       return this.completed ? "checked" : "";
     }
   });
+  
   Template.toDoItem.events({
     'click .delete-todo': function (event) {
       event.preventDefault();
